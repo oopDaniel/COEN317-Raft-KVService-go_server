@@ -1,3 +1,5 @@
 pkg/
 bin/
 *.log
+src/github.com
+src/golang.org
