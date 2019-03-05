@@ -1,6 +1,6 @@
-package raftkv
+package kvraft
 
-import "linearizability"
+import "github.com/oopDaniel/COEN317-Raft-KVService-go_server/kv/linearizability"
 
 import "testing"
 import "strconv"

@@ -1,11 +1,12 @@
-package raftkv
+package kvraft
 
 import (
-	"labgob"
-	"labrpc"
-	"raft"
 	"sync"
 	"time"
+
+	"github.com/oopDaniel/COEN317-Raft-KVService-go_server/kv/labgob"
+	"github.com/oopDaniel/COEN317-Raft-KVService-go_server/kv/labrpc"
+	"github.com/oopDaniel/COEN317-Raft-KVService-go_server/kv/raft"
 )
 
 type Operation int

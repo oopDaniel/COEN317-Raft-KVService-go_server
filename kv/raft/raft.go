@@ -19,12 +19,13 @@ package raft
 
 import (
 	"bytes"
-	"labgob"
-	"labrpc"
 	"math/rand"
 	"sort"
 	"sync"
 	"time"
+
+	"github.com/oopDaniel/COEN317-Raft-KVService-go_server/kv/labgob"
+	"github.com/oopDaniel/COEN317-Raft-KVService-go_server/kv/labrpc"
 )
 
 //

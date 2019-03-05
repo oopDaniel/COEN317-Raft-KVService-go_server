@@ -1,6 +1,6 @@
-package raftkv
+package kvraft
 
-import "labrpc"
+import "github.com/oopDaniel/COEN317-Raft-KVService-go_server/kv/labrpc"
 import "testing"
 import "os"
 
@@ -11,7 +11,7 @@ import "math/rand"
 import "encoding/base64"
 import "sync"
 import "runtime"
-import "raft"
+import "github.com/oopDaniel/COEN317-Raft-KVService-go_server/kv/raft"
 import "fmt"
 import "time"
 import "sync/atomic"

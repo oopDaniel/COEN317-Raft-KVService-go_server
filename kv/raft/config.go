@@ -8,7 +8,7 @@ package raft
 // test with the original before submitting.
 //
 
-import "labrpc"
+import "github.com/oopDaniel/COEN317-Raft-KVService-go_server/kv/labrpc"
 import "log"
 import "sync"
 import "testing"

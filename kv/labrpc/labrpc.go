@@ -49,7 +49,7 @@ package labrpc
 //   pass svc to srv.AddService()
 //
 
-import "labgob"
+import "github.com/oopDaniel/COEN317-Raft-KVService-go_server/kv/labgob"
 import "bytes"
 import "reflect"
 import "sync"

@@ -1,8 +1,9 @@
-package raftkv
+package kvraft
 
 import (
-	"labrpc"
 	"time"
+
+	"github.com/oopDaniel/COEN317-Raft-KVService-go_server/kv/labrpc"
 )
 
 type Clerk struct {
