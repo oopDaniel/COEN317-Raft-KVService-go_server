@@ -3,6 +3,8 @@ github.com/cweill/gotests v1.5.2/go.mod h1:XZYOJkGVkCRoymaIzmp9Wyi3rUgfA3oOnkulj
 github.com/davidrjenni/reftools v0.0.0-20180914123528-654d0ba4f96d h1:aRvyac5PN1NEfcANJ1tfs8GMs5I9OXsVeg0FJkpXOys=
 github.com/davidrjenni/reftools v0.0.0-20180914123528-654d0ba4f96d/go.mod h1:8o/GRMvsb9VyFbSEZGXfa0dkSXml4G23W0D/h9FksWM=
 github.com/golang/protobuf v1.2.0/go.mod h1:6lQm79b+lXiMfvg/cZm0SGofjICqVBUtrP5yJMmIC1U=
+github.com/gorilla/handlers v1.4.0 h1:XulKRWSQK5uChr4pEgSE4Tc/OcmnU9GJuSwdog/tZsA=
+github.com/gorilla/handlers v1.4.0/go.mod h1:Qkdc/uu4tH4g6mTK6auzZ766c4CA0Ng8+o/OAirnOIQ=
 github.com/gorilla/mux v1.7.0 h1:tOSd0UKHQd6urX6ApfOn4XdBMY6Sh1MfxV3kmaazO+U=
 github.com/gorilla/mux v1.7.0/go.mod h1:1lud6UwP+6orDFRuTfBEV8e9/aOM/c4fVVCaMa2zaAs=
 github.com/haya14busa/goplay v1.0.0 h1:ED4BMrGQ3WH7H3YXrcnWMVzj1xeSepaYTkLh1DtFi/4=

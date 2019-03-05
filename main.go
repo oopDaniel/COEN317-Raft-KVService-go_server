@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 )
 
@@ -55,7 +56,12 @@ func startServer() {
 	router.HandleFunc("/machines/alive", sv.getMachineByAction("alive")).Methods("GET")
 	router.HandleFunc("/machine/{id}", sv.setMachine).Methods("DELETE")
 	router.HandleFunc("/machine/{id}", sv.setMachine).Methods("POST")
-	log.Fatal(http.ListenAndServe(":8080", router))
+
+	originsOk := handlers.AllowedOrigins([]string{"*"})
+	headersOk := handlers.AllowedHeaders([]string{"X-Requested-With"})
+	methodsOk := handlers.AllowedMethods([]string{"GET", "HEAD", "POST", "PUT", "OPTIONS"})
+
+	log.Fatal(http.ListenAndServe(":8080", handlers.CORS(originsOk, headersOk, methodsOk)(router)))
 }
 
 func (sv *Server) getState(w http.ResponseWriter, r *http.Request) {

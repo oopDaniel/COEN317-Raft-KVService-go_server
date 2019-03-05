@@ -3,6 +3,7 @@ module github.com/oopDaniel/COEN317-Raft-KVService-go_server
 require (
 	github.com/cweill/gotests v1.5.2
 	github.com/davidrjenni/reftools v0.0.0-20180914123528-654d0ba4f96d
+	github.com/gorilla/handlers v1.4.0
 	github.com/gorilla/mux v1.7.0
 	github.com/haya14busa/goplay v1.0.0
 	github.com/keegancsmith/rpc v1.1.0
