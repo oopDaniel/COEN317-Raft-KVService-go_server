@@ -27,6 +27,7 @@ type Server struct {
 	machines    []string          // mock AWS instances
 	machinesMap map[string]bool
 	alive       map[string]bool
+	router      *mux.Router
 }
 
 func main() {
@@ -42,14 +43,15 @@ func main() {
 // }
 
 func startServer() {
+	router := mux.NewRouter().StrictSlash(true)
 	sv := Server{
 		kv:          make(map[string]string),
 		machines:    []string{"A", "B", "C", "D", "E"},
 		machinesMap: map[string]bool{"A": true, "B": true, "C": true, "D": true, "E": true},
 		alive:       map[string]bool{"A": true, "B": true, "C": true, "D": true, "E": true},
+		router:      router,
 	}
 
-	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/state", sv.getState).Methods("GET").Queries("key", "{key}")
 	router.HandleFunc("/state", sv.setState).Methods("POST")
 	router.HandleFunc("/machines/all", sv.getMachineByAction("all")).Methods("GET")
@@ -57,9 +59,10 @@ func startServer() {
 	router.HandleFunc("/machine/{id}", sv.setMachine).Methods("DELETE")
 	router.HandleFunc("/machine/{id}", sv.setMachine).Methods("POST")
 
+	// Enable CORS
 	originsOk := handlers.AllowedOrigins([]string{"*"})
-	headersOk := handlers.AllowedHeaders([]string{"X-Requested-With"})
-	methodsOk := handlers.AllowedMethods([]string{"GET", "HEAD", "POST", "PUT", "OPTIONS"})
+	headersOk := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type"})
+	methodsOk := handlers.AllowedMethods([]string{"GET", "POST", "DELETE", "OPTIONS"})
 
 	log.Fatal(http.ListenAndServe(":8080", handlers.CORS(originsOk, headersOk, methodsOk)(router)))
 }
@@ -115,7 +118,7 @@ func (sv *Server) setMachine(w http.ResponseWriter, r *http.Request) {
 	if exist := sv.machinesMap[id]; exist {
 		if r.Method == "DELETE" {
 			sv.alive[id] = false
-		} else {
+		} else if r.Method == "POST" {
 			sv.alive[id] = true
 		}
 	}
